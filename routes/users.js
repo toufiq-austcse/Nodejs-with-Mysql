@@ -4,14 +4,14 @@ const User = require('../models/user');
 
 var router = express.Router();
 
-/* GET users listing. */
-// router.get('/users', (req, res) => {
-//     User.forge().fetch().then(collections => {
-//         res.status(200).json(collections)
-//     }).catch((error) => {
-//         res.status(500).json(error);
-//     })
-// });
+
+router.get('/users', (req, res) => {
+    User.forge().fetchAll().then(collections => {
+        res.status(200).json(collections)
+    }).catch((error) => {
+        res.status(500).json(error);
+    })
+});
 
 router.post('/users', (req, res) => {
     let user = User.forge({
